@@ -1,4 +1,4 @@
-/*ejercicio: realizar una funcion que recibe un numero decimal y guarde la parte 
+/*ejercicio: realizar una funcion que reciba un numero decimal y guarde la parte 
 entera en un vector y la parte decimal en otro ej : 192.168*/
 
 #include <iostream>
