@@ -1,0 +1,52 @@
+/*ejercicio: realizar una funcion que recibe un numero decimal y guarde la parte 
+entera en un vector y la parte decimal en otro ej : 192.168*/
+
+#include <iostream>
+#define CANT 10
+using namespace std;
+
+char* funcion( char n[CANT] , char decimal[CANT] );
+
+int main()
+{
+    char n [CANT]= "123.4";
+    char decimal[CANT];
+    char *entero;
+    
+    entero = funcion( n  , decimal );// ptro apunta a la direccion del vector
+
+    cout<<"Parte entera: "<<entero<<endl<<"Parte decimal: "<<decimal;
+
+    delete []entero;
+    return 0;
+}
+char* funcion( char n[CANT], char decimal[CANT] )
+{
+    /*
+    Recorro el v y voy guardando en otro v si es igual a un punto, en esa
+    posicion finalizo el vector
+    i aumenta en 1,centonces ya debo guardarlo en el segundo vector
+    uso un flag para que me avise si aparecio el punto, = 1 guardo en el 2do v
+    */
+    int i, j=0, flag=0;
+    char *entero = new char(CANT);
+    
+    for( i=0 ; n[i] != '\0'; i++ )
+    {
+            if( flag == 0 )
+                entero[i] = n[i];
+            else
+            {
+                decimal[j] = n[i];
+                j++;
+            }
+            if( n[i] == '.' )
+            {
+                entero[i] = '\0' ;//guarde el punto pero lo piso con esta linea
+                flag++;;
+            }
+    }
+    //j=1 i=5 = \0, al salir del for i=5, mantiene su valor
+    decimal[j] ='\0';
+    return entero;
+}
