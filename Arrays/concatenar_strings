@@ -15,42 +15,72 @@ el siguiente formato: “Apellido, Nombre”
 */
 #include <iostream>
 using namespace std;
-void concatenar_palabras();
+
+void pido_datos(char nombre[] , char apellido[] );
+void muestro_datos( char string_final[] );
+void copio_string( char aux[] , char str[] , int &j );
+void inicial_con_mayuscula(char str[]);
+void concatenar_palabras( char nombre[] , char apellido[] , char aux[] );
 
 int main()
 {
-    concatenar_palabras();
-
-    return 0;
-}
-
-void concatenar_palabras()
- {
     char nombre[30];
     char apellido[30];
-    char aux[30];
-    int i, j=0;
-    cout<<"Ingrese su nombre : ";
-    cin>>nombre;
-    cout<<"Ingrese su apellido : ";
-    cin>>apellido;
-    for( i = 0 ; apellido[i]!='\0' ; i++)
+    char apellido_nombre[30];
+
+    pido_datos( nombre , apellido );
+    
+    concatenar_palabras( nombre , apellido , apellido_nombre );
+
+    muestro_datos( apellido_nombre );
+    return 0;
+}
+void copio_string( char aux[] , char str[] , int &j )
+{
+    int i;
+    /*para hacer la funcion debo finalizar el aux, 
+        tengo una condicion, debo copiar al final! lo soluciono al pasar j
+        (si no paso la j-> voy al final del string, al recorrerlo y al salir del for ya estoy posicionada
+        sobre el \0, ahi pego la , y el espacio(perolo que hace en concreeto es unir , x lo 
+        tanto la coma y el espacio no tiene nada que ver con esta funcion))
+    */
+    for( i = 0 ; str[i]!='\0' ; i++)
     {
-        aux[j] = apellido[i];
+        aux[j] = str[i];
         j++;
     }
+    aux[j] = '\0';
+}
+void inicial_con_mayuscula(char str[])
+{
+    str[0] = str[0] - 32;//le resto 32, donde a=97 y al restar 32 es igual a 65=A su valor en ascii
+}
+void concatenar_palabras( char nombre[] , char apellido[] , char aux[] )
+{
+
+    int i, j=0;
+
+    inicial_con_mayuscula(nombre);
+    inicial_con_mayuscula(apellido);
+
+    copio_string( aux , apellido , j );//pasar el j, su posicion actual
+
     //termine de copiar el primer string
     aux[j] = ',';
     j++;
     aux[j] = ' ';
     j++;//para copiar despues del espacio
-    for( i = 0 ; nombre[i]!='\0' ; i++)
-    {
-        aux[j] = nombre[i];
-        j++;//copio la ultima letra y movi el indice j entonces al terminar el for paso al espacio para finalizar el string
-    }
-    aux[j] = '\0';//finalizo
-    cout<<"pal: "<<aux;
-
+    copio_string( aux , nombre , j );
 }
-
+void pido_datos(char nombre[] , char apellido[] )
+{
+    cout<<"Ingrese su nombre : ";
+    cin>>nombre;
+    cout<<"Ingrese su apellido : ";
+    cin>>apellido;
+}
+void muestro_datos( char string_final[] )
+{
+    cout<<"\t\tMuestro datos : "<<endl;
+    cout<<"El string final es : <"<<string_final<<">"<<endl;
+}
