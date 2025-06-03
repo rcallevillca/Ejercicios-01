@@ -1,5 +1,5 @@
 /*
-Realizar una funcion que busque una palabra, que se ingresa por teclado, en un parrafo y retorne la cantidad de
+Realizar una funcion que busque una palabra, que se ingresa por teclado, en un texto y retorne la cantidad de
 veces que se repite.
 */
 /*
@@ -13,6 +13,7 @@ veces que se repite.
     ->son iguales sumo 1 = cant
     -> retorno cant
 */
+
 #include <iostream>
 #include <string.h>
 using namespace std;
@@ -22,30 +23,35 @@ int buscar_palabra(char cadena[] , char palabra[] );
 int main()
 {
     char palabra[20];
-    char cadena[50] = "Hola hola hola";
+    char cadena[50];
     int cant = 0;
     
+    cout<<"Ingrese un texto: ";
+    cin.getline(cadena, 50 );//lee la entrada hasta que se encuentra con el caracter de cambio de linea
+
     cout<<"Ingrese palabra a buscar : ";
     cin>>palabra;
-      
-    cout<<"La palabra "<<palabra<<" se encontro : "<<buscar_palabra(cadena, palabra);
-     //buscar una funcion que admita espacios
+    cant = buscar_palabra(cadena, palabra);
+
+    cout<<"La palabra "<<palabra<<" se encontro : "<<cant;
     
     return 0;
 }
 int buscar_palabra(char cadena[] , char palabra[] )
 {
     char aux[20];
-    int j = 0, cant = 0;
+    int i, j = 0, cant = 0;
     int largo = strlen(palabra);
+    
     for( i = 0 ; cadena[i]!='\0' ; i++)
     {
         if( cadena[i] ==' ' || cadena[i] ==',' || cadena[i] == '.' )
         {
             aux[j] = '\0';//tengo la palabra, entonces comparo
+
             if( largo == strlen(aux) )
             {            
-                if( 0 == strcmp(palabra,cadena) )//retorna cero si son iguales
+                if( 0 == strcmp(palabra,aux) )//retorna cero si son iguales
                     cant++;
             }
             j = 0;
@@ -56,11 +62,11 @@ int buscar_palabra(char cadena[] , char palabra[] )
             j++;
         }
     }
-    if (cadena[i] == '\0')// si el parrarfo no termina con un punto y para armar bien la palabra, sumo el i y conserva su valor despues del for
+    if (cadena[i] == '\0')// si el texto no termina con un punto y para armar bien la palabra, sumo el i y conserva su valor despues del for
     {
         aux[j]='\0';
-        if( 0 == strcmp(aux,palabra) )
-                    cant++;
+        if( 0 == strcmp(palabra, aux) )
+            cant++;
     }
     return cant;
 }
