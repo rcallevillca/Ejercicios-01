@@ -13,6 +13,26 @@ veces que se repite.
     ->son iguales sumo 1 = cant
     -> retorno cant
 */
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+int buscar_palabra(char cadena[] , char palabra[] );
+
+int main()
+{
+    char palabra[20];
+    char cadena[50] = "Hola hola hola";
+    int cant = 0;
+    
+    cout<<"Ingrese palabra a buscar : ";
+    cin>>palabra;
+      
+    cout<<"La palabra "<<palabra<<" se encontro : "<<buscar_palabra(cadena, palabra);
+     //buscar una funcion que admita espacios
+    
+    return 0;
+}
 int buscar_palabra(char cadena[] , char palabra[] )
 {
     char aux[20];
@@ -35,6 +55,12 @@ int buscar_palabra(char cadena[] , char palabra[] )
             aux[j] = cadena[i];
             j++;
         }
+    }
+    if (cadena[i] == '\0')// si el parrarfo no termina con un punto y para armar bien la palabra, sumo el i y conserva su valor despues del for
+    {
+        aux[j]='\0';
+        if( 0 == strcmp(aux,palabra) )
+                    cant++;
     }
     return cant;
 }
