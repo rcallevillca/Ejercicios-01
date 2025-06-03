@@ -1,0 +1,56 @@
+/*
+12.Crear una función que le pida al usuario su nombre y apellido, e los imprima con 
+el siguiente formato: “Apellido, Nombre”
+*/
+/*
+    1º pedir al usuario name y Apellido, str1, str2
+    2ºimprimir
+        uso 2 for, termina al encontra el \0, tengo un j que siempre va sumando, i vuelve a cero enel 2do for
+        :tengo 2 string , uso un tercer string (aux) donde voy copiando str2
+        termino de copiar i esta en el sig , pego la , y el espacio
+        acopio str1
+        termina el for y finalizo el auxiliar
+        //ver de optimizar cuando copio ya que hace lo mismo
+        //si no paso el nombre y apell en mayuscula , hacer otra funcion que lo pase a mayuscuala
+*/
+#include <iostream>
+using namespace std;
+void concatenar_palabras();
+
+int main()
+{
+    concatenar_palabras();
+
+    return 0;
+}
+
+void concatenar_palabras()
+ {
+    char nombre[30];
+    char apellido[30];
+    char aux[30];
+    int i, j=0;
+    cout<<"Ingrese su nombre : ";
+    cin>>nombre;
+    cout<<"Ingrese su apellido : ";
+    cin>>apellido;
+    for( i = 0 ; apellido[i]!='\0' ; i++)
+    {
+        aux[j] = apellido[i];
+        j++;
+    }
+    //termine de copiar el primer string
+    aux[j] = ',';
+    j++;
+    aux[j] = ' ';
+    j++;//para copiar despues del espacio
+    for( i = 0 ; nombre[i]!='\0' ; i++)
+    {
+        aux[j] = nombre[i];
+        j++;//copio la ultima letra y movi el indice j entonces al terminar el for paso al espacio para finalizar el string
+    }
+    aux[j] = '\0';//finalizo
+    cout<<"pal: "<<aux;
+
+}
+
