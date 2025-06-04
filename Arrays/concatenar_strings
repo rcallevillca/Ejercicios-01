@@ -3,15 +3,10 @@
 el siguiente formato: “Apellido, Nombre”
 */
 /*
-    1º pedir al usuario name y Apellido, str1, str2
-    2ºimprimir
-        uso 2 for, termina al encontra el \0, tengo un j que siempre va sumando, i vuelve a cero enel 2do for
-        :tengo 2 string , uso un tercer string (aux) donde voy copiando str2
-        termino de copiar i esta en el sig , pego la , y el espacio
-        acopio str1
-        termina el for y finalizo el auxiliar
-        //ver de optimizar cuando copio ya que hace lo mismo
-        //si no paso el nombre y apell en mayuscula , hacer otra funcion que lo pase a mayuscuala
+    Tengo 2 strings, uso un tercer string (aux) donde voy copiando todo
+    ->en el for, termina al encontrar el \0, tengo un j que siempre va sumando, i vuelve a cero
+    termino de copiar el string, j esta en la siguiente posicion, copio la ',' y el espacio
+    luego copio el segundo string.
 */
 #include <iostream>
 using namespace std;
@@ -19,7 +14,7 @@ using namespace std;
 void pido_datos(char nombre[] , char apellido[] );
 void muestro_datos( char string_final[] );
 void copio_string( char aux[] , char str[] , int &j );
-void inicial_con_mayuscula(char str[]);
+void inicial_en_mayuscula(char str[]);
 void concatenar_palabras( char nombre[] , char apellido[] , char aux[] );
 
 int main()
@@ -33,16 +28,16 @@ int main()
     concatenar_palabras( nombre , apellido , apellido_nombre );
 
     muestro_datos( apellido_nombre );
+
     return 0;
 }
 void copio_string( char aux[] , char str[] , int &j )
 {
     int i;
-    /*para hacer la funcion debo finalizar el aux, 
-        tengo una condicion, debo copiar al final! lo soluciono al pasar j
-        (si no paso la j-> voy al final del string, al recorrerlo y al salir del for ya estoy posicionada
-        sobre el \0, ahi pego la , y el espacio(perolo que hace en concreeto es unir , x lo 
-        tanto la coma y el espacio no tiene nada que ver con esta funcion))
+    /*
+    Para realizar la funcion debo finalizar el aux
+        .tengo una condicion, debo copiar al final ! lo soluciono al pasar j
+        .si no paso la j-> voy al final del string, copio y finalizo el string largo
     */
     for( i = 0 ; str[i]!='\0' ; i++)
     {
@@ -51,21 +46,22 @@ void copio_string( char aux[] , char str[] , int &j )
     }
     aux[j] = '\0';
 }
-void inicial_con_mayuscula(char str[])
+void inicial_en_mayuscula(char str[])
 {
-    str[0] = str[0] - 32;//le resto 32, donde a=97 y al restar 32 es igual a 65=A su valor en ascii
+    if( (str[0] > 'a') && (str[0] < 'z') )
+        str[0] = str[0] - 32;//le resto 32, donde a=97 y al restar 32 es igual a 65=A su valor en ascii
 }
 void concatenar_palabras( char nombre[] , char apellido[] , char aux[] )
 {
-
     int i, j=0;
 
-    inicial_con_mayuscula(nombre);
-    inicial_con_mayuscula(apellido);
+    inicial_en_mayuscula(nombre);
+    inicial_en_mayuscula(apellido);
 
-    copio_string( aux , apellido , j );//pasar el j, su posicion actual
+    copio_string( aux , apellido , j );//pasar la j, su posicion actual
 
     //termine de copiar el primer string
+
     aux[j] = ',';
     j++;
     aux[j] = ' ';
@@ -81,6 +77,6 @@ void pido_datos(char nombre[] , char apellido[] )
 }
 void muestro_datos( char string_final[] )
 {
-    cout<<"\t\tMuestro datos : "<<endl;
+    cout<<endl<<"\t\tMuestro datos : "<<endl;
     cout<<"El string final es : <"<<string_final<<">"<<endl;
 }
