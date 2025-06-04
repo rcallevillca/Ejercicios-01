@@ -6,3 +6,8 @@ b)Hacer una función que reciba una palabra y que imprima sólo los caracteres u
 c)Hacer una función que reciba una palabra y que imprima la palabra dada vuelta. 
   Ejemplo: Si se recibe “materia” se debe imprimir “airetam”.
 */
+
+#include <iostream>
+using namespace std;
+
+
