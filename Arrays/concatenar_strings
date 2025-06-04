@@ -1,6 +1,6 @@
 /*
 12.Crear una función que le pida al usuario su nombre y apellido, e los imprima con 
-el siguiente formato: “Apellido, Nombre”
+el siguiente formato: “Apellido, Nombre”  
 */
 /*
     Tengo 2 strings, uso un tercer string (aux) donde voy copiando todo
