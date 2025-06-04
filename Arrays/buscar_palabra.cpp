@@ -1,6 +1,6 @@
 /*
 Realizar una funcion que busque una palabra, que se ingresa por teclado, en un texto y retorne la cantidad de
-veces que se repite.
+veces que se repite..
 */
 /*
 1ºarmo una palabra con un tamaño de 20
