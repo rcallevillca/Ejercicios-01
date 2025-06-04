@@ -14,13 +14,13 @@ int main()
 void paso_string_a_un_numero() 
 {
     /*es un sist. de numeracion posicional de base 10
-    paso a numero , multiplico segun como corresponda y lo voy sumando 
-    1º paso a numero, al caracter le resto 48 porque el valor ascii del cero es 48
+    lo convierto a un numero , multiplico por la base y su peso , y lo voy sumando 
+    1º lo convierto a un numero , al caracter le resto 48 porque el valor ascii del cero es 48
     2º como no se como empieza(si es u,d,c) entonces recorro del final hacia el 
-     inicio y voy multiplicando por 10
+     inicio y lo voy multiplicando con su base y potencia
             ej:12
             parte entera
-                1ºvuelta : 2 es unidad 2 * 10^0 = 2// n*base^peso
+                1ºvuelta : 2 es unidad 2 * 10^0 = 2// n*base^peso 
                 2ºvuelta : 1 es decena 1 * 10^1 = 10
                 2 + 10 = 12
                 
