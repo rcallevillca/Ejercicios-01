@@ -4,7 +4,7 @@ using namespace std;
 
 /*
 Funcion que convierte un string a un numero del tipo int ( uso float para que sea decimal) , muestra su parte entera
-(pasar a otra base , uso un menu, lo unico que cambia es la base a octal hexa y binario)
+(pasar a otra base , uso un menu, lo unico que cambia es la base a octal hexa y binario).
 */
 
 int main()
