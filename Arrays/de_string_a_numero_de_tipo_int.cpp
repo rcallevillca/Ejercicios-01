@@ -15,7 +15,7 @@ void paso_string_a_un_numero()
 {
     /*es un sist. de numeracion posicional de base 10
     paso a numero , multiplico segun como corresponda y lo voy sumando 
-    1º paso a numero, al caracter le resto 48 porque es el valor ascii del cero es 48
+    1º paso a numero, al caracter le resto 48 porque el valor ascii del cero es 48
     2º como no se como empieza(si es u,d,c) entonces recorro del final hacia el 
      inicio y voy multiplicando por 10
             ej:12
