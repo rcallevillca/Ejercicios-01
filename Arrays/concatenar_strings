@@ -49,7 +49,7 @@ void copio_string( char aux[] , char str[] , int &j )
 void inicial_en_mayuscula(char str[])
 {
     if( (str[0] > 'a') && (str[0] < 'z') )
-        str[0] = str[0] - 32;//le resto 32, donde a=97 y al restar 32 es igual a 65=A su valor en ascii
+        str[0] = str[0] - 32;//le resto 32, donde a=97 y al restar 32 va a ser igual a 65=A  que seria su valor en ascii
 }
 void concatenar_palabras( char nombre[] , char apellido[] , char aux[] )
 {
