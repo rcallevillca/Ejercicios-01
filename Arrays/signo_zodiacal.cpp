@@ -59,100 +59,99 @@ int main()
 {
     int dia;
     char mes[10];
-	cout<<"\t\tFuncion  que dice tu signo zodiacal."<<endl;
+	cout<<"\t\tFuncion  que dice tu signo zodiacal."<<endl<<endl;
 
-    cout<<"Ingresa el dia";
+    cout<<"Ingresa el dia : ";
     cin>>dia;
-    cout<<"Ingresa el mes";
+    cout<<"Ingresa el mes : ";
     cin>>mes;
 
     te_digo_tu_signo_zodiacal( mes ,  dia);
 
 	return 0;
 }
-//Optimizar !!
+//todo ok pero Optimizar !!
+//abri 30, mayo 31 , junio 30, jul 31 , ag 31, sept 30, oct 31, nov 30,  dic 31 
 void te_digo_tu_signo_zodiacal(char mes[], int dia)
 {
-        if( strcmp(mes,"enero"))
+        if( 0 == strcmp(mes,"enero"))
         {
             if( dia >=1 && dia <=20 )
                 cout<<endl<<"Soy capricornio";
             if( dia >=21 && dia <=31 )
                 cout<<endl<<"Soy acuario";
         }
-        if( strcmp(mes,"febrero"))
+        else if( 0 == strcmp(mes,"febrero"))
         {
             if( dia >=1 && dia <=19 )
                 cout<<endl<<"Soy acuario";
             if( dia >=20 && dia <=28 )
                 cout<<endl<<"Soy piscis";
         }
-        if( strcmp(mes,"marzo"))
+        else if( 0 == strcmp(mes,"marzo"))
         {
             if( dia >=1 && dia <=20 )
                 cout<<endl<<"Soy piscis";
             if( dia >=21 && dia <=31 )
                 cout<<endl<<"Soy aries";
         }
-        //------------
-        //abri 30, mayo 31 , junio 30, jul31 , ag 31 sept 30 oct 31, nov 30,  dic 31 
-        if( strcmp(mes,"abril"))
+        else if( 0 == strcmp(mes,"abril"))
         {
             if( dia >=1 && dia <=20 )
                 cout<<endl<<"Soy aries";
             if( dia >=21 && dia <=30 )
                 cout<<endl<<"Soy tauro";
         }
-        if( strcmp(mes,"mayo"))
+        else if( 0 == strcmp(mes,"mayo"))
         {
             if( dia >=1 && dia <=20 )
                 cout<<endl<<"Soy tauro";
             if( dia >=21 && dia <=30 )
                 cout<<endl<<"Soy geminis";
         }
-        if( strcmp(mes,"junio"))
+        else if( 0 == strcmp(mes,"junio"))
         {
             if( dia >=1 && dia <=21 )
                 cout<<endl<<"Soy geminis";
             if( dia >=22 && dia <=30 )
                 cout<<endl<<"Soy cancer";
         }
-        if( strcmp(mes,"julio"))
+        else if( 0 == strcmp(mes,"julio"))
         {
             if( dia >=1 && dia <=23 )
                 cout<<endl<<"Soy cancer";
             if( dia >=24 && dia <=31 )
                 cout<<endl<<"Soy leo";
         }
-        if( strcmp(mes,"agosto"))
+        else if( 0 == strcmp(mes,"agosto"))
         {
             if( dia >=1 && dia <=23 )
                 cout<<endl<<"Soy leo";
             if( dia >=24 && dia <=31 )
                 cout<<endl<<"Soy virgo";
         }
-        if( strcmp(mes,"septiembre"))
+        else if( 0 == strcmp(mes,"septiembre"))
         {
             if( dia >=1 && dia <=23 )
                 cout<<endl<<"Soy virgo";
             if( dia >=24 && dia <=30 )
                 cout<<endl<<"Soy libra";
         }
-        if( strcmp(mes,"octubre"))
+        else if( 0 == strcmp(mes,"octubre"))
         {
             if( dia >=1 && dia <=22 )
                 cout<<endl<<"Soy libra";
             if( dia >=23 && dia <=31 )
                 cout<<endl<<"Soy escorpio";
         }
-        if( strcmp(mes,"noviembre"))
+        else if( 0 == strcmp(mes,"noviembre"))
         {
             if( dia >=1 && dia <=22 )
                 cout<<endl<<"Soy escorpio";
             if( dia >=23 && dia <=30 )
                 cout<<endl<<"Soy sagitario";
         }
-        if( strcmp(mes,"diciembre"))
+        else if( 0 == strcmp(mes,"diciembre"))
         {
             if( dia >=1 && dia <=21 )
                 cout<<endl<<"Soy sagitario";
@@ -160,4 +159,3 @@ void te_digo_tu_signo_zodiacal(char mes[], int dia)
                 cout<<endl<<"Soy capricornio";
         }
  }
-
