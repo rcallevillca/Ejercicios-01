@@ -1,6 +1,6 @@
- /*
-Escribir funciones que resuelvan los siguientes problemas:
-
+/*
+Guia 3. 
+ej 5. Escribir funciones que resuelvan los siguientes problemas:
 Dado un año, que devuelva si es bisiesto. Nota: un año es bisiesto si es un número divisible por 4, 
 pero no si es divisible por 100, excepto que también sea divisible por 400.
 1.Dado un mes y un año, que devuelva la cantidad de días correspondientes.
@@ -10,7 +10,6 @@ armar una matriz
 
 enero 31, febrero 28, marzo 31, abril 30, mayo 31 , junio 30, jul 31 , ag 31, sept 30, oct 31, nov 30,  dic 31 
 
-...el unico mes qeu cambia la cant de dias es febrero
 datos mes y año
 2025
 mes
@@ -52,52 +51,60 @@ void determinar_signo_zodiacal(char mes[], int dia);
 
 int main()
 {
-    int dia;
+    int dia, flag = 0 , flag2 = 0 ;
+    char opcion;
     char mes[10];
     cout<<"\t\tFuncion  que determina tu signo zodiacal."<<endl<<endl;
+    while( !flag )
+	{
+	    cout<<endl<<"-----------------------------";
+		cout<<endl<<endl<<"\tIngrese una opcion";
+		cout<<endl<<"a. Determinar signo"<<endl<<"b. Finalizar"<<endl<<endl<<"->";
+		cin>>opcion;
+		if( opcion == 'b' )flag++;
+		if( opcion == 'a' )
+    	{
+    	    
+    	    while( !flag2 )
+	        {
+                cout<<"Ingresa el dia : ";
+                cin>>dia;
+                cout<<"Ingresa el mes : ";
+                cin>>mes;
 
-    cout<<"Ingresa el dia : ";
-    cin>>dia;
-    cout<<"Ingresa el mes : ";
-    cin>>mes;
-
-    determinar_signo_zodiacal( mes ,  dia);
-
+                if( dia >= 1 && dia <= 31 )
+                {
+                    determinar_signo_zodiacal( mes ,  dia );
+                    flag2++;
+                }
+                else cout<<"\tIngreso un dia invalido."<<endl;//hacer un for para que evalue el dia
+            }
+            flag2 = 0;
+    	}
+        if( opcion != 'a' && opcion != 'b' )cout<<"\tIngreso una opcion invalida. Ingrese nuevamente la opcion"<<endl;
+    }
 	return 0;
 }
-/*todo ok pero falta Optimizar !!
+/*
 datos:    dia y mes 
 marzo 
 del 1 al 20 es piscis  
-dell 21 al 31 es aries
+del 21 al 31 es aries
 
 abril 30, mayo 31 , junio 30, jul 31 , ag 31, sept 30, oct 31, nov 30,  dic 31 
 */
-//repito 2 veces el signo!, es necesario el 1? creo que no ya que seria un requisito previo
 void determinar_signo_zodiacal(char mes[], int dia)
 {
-                if( ( 0==strcmp(mes,"enero") && dia>=21 )  || ( 0 == strcmp(mes,"febrero") && dia<=19 ) )
-                    cout<<endl<<"Tu signo zodiacales es: acuario";
-                if( ( 0 == strcmp(mes,"febrero") && dia<=28 ) ||( 0 == strcmp(mes,"marzo") && dia<=20 ) )
-                    cout<<endl<<"Tu signo zodiacales es: piscis";
-                if( (0==strcmp(mes,"marzo") &&dia <=31 ) || ( 0 == strcmp(mes,"abril")&&  dia<=20 ) )
-                    cout<<endl<<"Tu signo zodiacales es: aries";
-                if( ( 0 == strcmp(mes,"abril") && dia <=30 ) || ( 0 == strcmp(mes,"mayo") && dia<=20 ) )
-                    cout<<endl<<"Tu signo zodiacales es: tauro";
-                if( ( 0==strcmp(mes,"mayo") && dia<=30 )|| ( 0 == strcmp(mes,"junio") && dia <=21 ) )
-                    cout<<endl<<"Tu signo zodiacales es: geminis";
-                if( ( 0 == strcmp(mes,"junio")&&dia <=30 ) ||( 0 == strcmp(mes,"julio")&&dia <=23 ) )
-                    cout<<endl<<"Tu signo zodiacales es: cancer";
-                if( ( 0 == strcmp(mes,"julio")&&dia <=30 ) || ( 0 == strcmp(mes,"agosto" && dia<=23 ) )
-                    cout<<endl<<"Tu signo zodiacales es: leo";
-                if( ( 0 == strcmp(mes,"agosto")&&dia <=31 ) || ( 0 == strcmp(mes,"septiembre") && dia<=23 ) )
-                    cout<<endl<<"Tu signo zodiacales es: virgo";
-                if( ( 0 == strcmp(mes,"septiembre") && dia <=30 ) || ( 0 == strcmp(mes,"octubre")&& dia<=22 ) )
-                    cout<<endl<<"Tu signo zodiacales es: libra";
-                if( ( 0 == strcmp(mes,"octubre") && dia <=31 ) || ( 0 == strcmp(mes,"noviembre") && dia<=22 ) )
-                    cout<<endl<<"Tu signo zodiacales es: escorpio";
-                if( (0 == strcmp(mes,"noviembre") && dia <=30 ) || ( 0 == strcmp(mes,"diciembre") && dia<=21 ) )
-                    cout<<endl<<"Tu signo zodiacales es: sagitario";
-                if( ( 0 == strcmp(mes,"diciembre") && dia <=31 ) || ( 0 == strcmp(mes,"enero")  && dia<=20 ) )
-                    cout<<endl<<"Tu signo zodiacales es: capricornio";
+                if(      ( !strcmp(mes,"enero")      && dia>=21 ) || ( !strcmp(mes,"febrero")    && dia<=19 ) )cout<<endl<<"Tu signo zodiacal es: acuario";
+                else if( ( !strcmp(mes,"febrero")    && dia<=28 ) || ( !strcmp(mes,"marzo")      && dia<=20 ) )cout<<endl<<"Tu signo zodiacal es: piscis";
+                else if( ( !strcmp(mes,"marzo")      && dia<=31 ) || ( !strcmp(mes,"abril")      && dia<=20 ) )cout<<endl<<"Tu signo zodiacal es: aries";
+                else if( ( !strcmp(mes,"abril")      && dia<=30 ) || ( !strcmp(mes,"mayo")       && dia<=20 ) )cout<<endl<<"Tu signo zodiacal es: tauro";
+                else if( ( !strcmp(mes,"mayo")       && dia<=30 ) || ( !strcmp(mes,"junio")      && dia<=21 ) )cout<<endl<<"Tu signo zodiacal es: geminis";
+                else if( ( !strcmp(mes,"junio")      && dia<=30 ) || ( !strcmp(mes,"julio")      && dia<=23 ) )cout<<endl<<"Tu signo zodiacal es: cancer";
+                else if( ( !strcmp(mes,"julio")      && dia<=30 ) || ( !strcmp(mes,"agosto")     && dia<=23 ) )cout<<endl<<"Tu signo zodiacal es: leo";
+                else if( ( !strcmp(mes,"agosto")     && dia<=31 ) || ( !strcmp(mes,"septiembre") && dia<=23 ) )cout<<endl<<"Tu signo zodiacal es: virgo";
+                else if( ( !strcmp(mes,"septiembre") && dia<=30 ) || ( !strcmp(mes,"octubre")    && dia<=22 ) )cout<<endl<<"Tu signo zodiacal es: libra";
+                else if( ( !strcmp(mes,"octubre")    && dia<=31 ) || ( !strcmp(mes,"noviembre")  && dia<=22 ) )cout<<endl<<"Tu signo zodiacal es: escorpio";
+                else if( ( !strcmp(mes,"noviembre")  && dia<=30 ) || ( !strcmp(mes,"diciembre")  && dia<=21 ) )cout<<endl<<"Tu signo zodiacal es: sagitario";
+                else if( ( !strcmp(mes,"diciembre")  && dia<=31 ) || ( !strcmp(mes,"enero")      && dia<=20 ) )cout<<endl<<"Tu signo zodiacal es: capricornio";
  }
