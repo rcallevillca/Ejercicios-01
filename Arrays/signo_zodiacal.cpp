@@ -6,29 +6,13 @@ pero no si es divisible por 100, excepto que también sea divisible por 400.
 1.Dado un mes y un año, que devuelva la cantidad de días correspondientes.
 2.Pedirle al usuario su día y mes de cumpleaños. El programa debe imprimir un mensaje indicando a qué signo 
 corresponde el usuario.
-armar una matriz
 
 enero 31, febrero 28, marzo 31, abril 30, mayo 31 , junio 30, jul 31 , ag 31, sept 30, oct 31, nov 30,  dic 31 
 
 datos mes y año
 2025
 mes
-tengo un vector con todos los meses, 0=enero, 1 =febrero
-//
-otro vector con dias 31 , 28 , 31
-
-con i puedo imprimir todo el string
-con j veo solo un caracte
-i siempre es cero
-si es mes = v[i] uso un j=i+1 para saltar a la sig linea e imprimro v[j]
-                                     0   1    2
-                                     j   j    j
-                            0   i    en  feb  mar
-                            1   i    31  28   31
-
-    si es igual a enero seria igual a cero
-retornar 30 
-----
+---
 
 Aries: 21 de marzo al 20 de abril.
 Tauro: 21 de abril al 20 de mayo.
@@ -56,34 +40,33 @@ int main()
     char mes[10];
     cout<<"\t\tFuncion  que determina tu signo zodiacal."<<endl<<endl;
     while( !flag )
-	{
-	    cout<<endl<<"-----------------------------";
+    {
+	    	cout<<endl<<"-----------------------------";
 		cout<<endl<<endl<<"\tIngrese una opcion";
 		cout<<endl<<"a. Determinar signo"<<endl<<"b. Finalizar"<<endl<<endl<<"->";
 		cin>>opcion;
 		if( opcion == 'b' )flag++;
 		if( opcion == 'a' )
-    	{
-    	    
-    	    while( !flag2 )
-	        {
-                cout<<"Ingresa el dia : ";
-                cin>>dia;
-                cout<<"Ingresa el mes : ";
-                cin>>mes;
-
-                if( dia >= 1 && dia <= 31 )
-                {
-                    determinar_signo_zodiacal( mes ,  dia );
-                    flag2++;
-                }
-                else cout<<"\tIngreso un dia invalido."<<endl;//hacer un for para que evalue el dia
-            }
-            flag2 = 0;
-    	}
-        if( opcion != 'a' && opcion != 'b' )cout<<"\tIngreso una opcion invalida. Ingrese nuevamente la opcion"<<endl;
+    		{
+	    	    	while( !flag2 )
+		        {
+		        	cout<<"Ingresa el dia : ";
+		                cin>>dia;
+		                cout<<"Ingresa el mes : ";
+		                cin>>mes;
+		
+		                if( dia >= 1 && dia <= 31 )
+		                {
+		                    determinar_signo_zodiacal( mes ,  dia );
+		                    flag2++;
+		                }
+	                	else cout<<"\tIngreso un dia invalido."<<endl;//hacer un for para que evalue el dia
+	            	}
+	            flag2 = 0;
+    		}
+        	if( opcion != 'a' && opcion != 'b' )cout<<"\tIngreso una opcion invalida. Ingrese nuevamente la opcion."<<endl;
     }
-	return 0;
+    return 0;
 }
 /*
 datos:    dia y mes 
